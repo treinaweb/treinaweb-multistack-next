@@ -1,6 +1,6 @@
 const meusCursos = [
-    { id: 1, nome: 'React.js' },
-    { id: 2, nome: 'Next.js' }
+    { id: 1, nome: 'React' },
+    { id: 2, nome: 'Next' }
 ]
 
 export default function Cursos(request, response) {
