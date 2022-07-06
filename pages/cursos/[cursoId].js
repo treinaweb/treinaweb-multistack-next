@@ -8,11 +8,31 @@ function delay() {
     })
 }
 
-export async function getServerSideProps(ctx) {
-    const id = ctx.query.cursoId
+export async function getStaticPaths() {
+
+    return {
+        paths: [
+            {
+                params: {
+                    cursoId: '1'
+                }
+            },
+            {
+                params: {
+                    cursoId: '2'
+                }
+            }
+        ],
+        fallback: false
+    }
+}
+
+
+export async function getStaticProps(ctx) {
+    const id = ctx.params.cursoId
     const response = await fetch(`http://localhost:3000/api/cursos/${id}`)
     const data = await response.json()
-    await delay()
+
     return {
         props: {
             curso: data
